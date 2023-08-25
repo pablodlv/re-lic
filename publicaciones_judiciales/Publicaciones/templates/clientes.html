@@ -1,0 +1,31 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido_hero %} 
+<div class="masthead-subheading">Sistema</div>
+<div class="masthead-heading text-uppercase">Clientes</div>
+<div class="masthead-subheading">Buscá el cliente a modificar o elegí otro listado para editar</div>
+<a class="btn btn-success btn-xl text-uppercase" href="{% url 'remates' %}">Remates</a>
+<a class="btn btn-info btn-xl text-uppercase" href="{% url 'licitaciones' %}">Licitaciones</a>
+<a class="btn btn-warning btn-xl text-uppercase" href="{% url 'martilleros' %}">Martilleros</a>
+<a class="btn btn-danger btn-xl text-uppercase" href="{% url 'operadores' %}">Operadores</a>
+{% endblock %}
+
+{% block listado %} 
+<br>
+
+<form action="{% url 'clientes' %}" method="POST"> {% csrf_token %}
+    <table>
+        
+        {{ formulario.as_p }}
+    
+    </table>
+
+<input type="submit" value="Guardar cliente">
+
+</form>
+<br>
+<h3>{{ mensaje }}</h3>
+
+{% endblock %}

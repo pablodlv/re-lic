@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido_hero %} 
+<div class="masthead-subheading">Sistema</div>
+<div class="masthead-heading text-uppercase">Martilleros</div>
+<div class="masthead-subheading">Cargá el martillero</div>
+
+{% endblock %}
+
+{% block listado %}
+<br>
+    <form action="{% url 'martilleros' %}" method="POST"> {% csrf_token %}
+        
+        <table>
+
+            {{ formulario.as_p }}
+            
+        </table>
+        <input type="submit" value="Guardar martillero">
+
+    </form>
+<br>
+<h3>{{ mensaje }}</h3>
+
+{% endblock %}

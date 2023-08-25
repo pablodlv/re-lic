@@ -1,0 +1,25 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido_hero %} 
+<div class="masthead-subheading">Sistema</div>
+<div class="masthead-heading text-uppercase">Licitaciones</div>
+<div class="masthead-subheading">Modificá o cargá la licitación</div>
+{% endblock %}
+
+{% block listado %} 
+<br>
+<form action="{% url 'licitaciones' %}" method="POST"> {% csrf_token %}
+    <table>
+
+        {{ formulario.as_p }}
+        
+    </table>
+    <input type="submit" value="Guardar licitación">
+
+</form>
+<br>
+<h3>{{ mensaje }}</h3>
+<a class="btn btn-success btn-xl text-uppercase" href="{% url 'busqueda_licitaciones' %}">Buscar licitación</a>
+{% endblock %}

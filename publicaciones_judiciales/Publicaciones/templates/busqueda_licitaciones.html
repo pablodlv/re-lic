@@ -1,0 +1,21 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido_hero %} 
+<div class="masthead-subheading">Búsqueda</div>
+<div class="masthead-heading text-uppercase">Licitaciones</div>
+
+{% endblock %}
+
+{% block listado %}
+<br>
+    <form action="{% url 'buscar_lici' %}" method="GET"> 
+    
+        <input type="text" name="objeto" id="objeto" placeholder="Ingrese objeto a buscar">
+        <input type="submit" value="Buscar">
+
+    </form>
+<br>
+<a class="btn btn-warning btn-xl text-uppercase" href="{% url 'licitaciones' %}">Volver a Licitaciones</a>
+{% endblock %}

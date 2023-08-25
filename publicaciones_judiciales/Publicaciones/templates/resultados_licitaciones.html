@@ -1,0 +1,30 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido_hero %} 
+<div class="masthead-subheading">Resultados de la búsqueda</div>
+<div class="masthead-heading text-uppercase">Licitaciones</div>
+
+{% endblock %}
+
+{% block listado %}
+
+{% if licitaciones %}
+
+    <h3>Licitaciones encontradas</h3>
+    {% for licitacion in licitaciones %}
+
+        <h3>{{ licitacion.objeto }} - {{ licitacion.referencia }} - {{ licitacion.fecha }} - {{ licitacion.link }}</h3>
+
+    {% endfor %}
+
+{% else %}
+
+    <h3>No se encontraron licitaciones</h3>
+
+{% endif %}
+<a class="btn btn-warning btn-xl text-uppercase" href="{% url 'licitaciones' %}">Volver a Licitaciones</a>
+<h2>{{ mensaje }}</h2>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido_hero %} 
+<div class="masthead-subheading">Resultados de la búsqueda</div>
+<div class="masthead-heading text-uppercase">Remates</div>
+
+{% endblock %}
+
+{% block listado %}
+
+{% if remates %}
+
+    <h3>Remates encontrados</h3>
+    {% for remate in remates %}
+
+        <h3>{{ remate.bien }} - ${{ remate.base }} - {{ remate.fecha }} - {{ remate.lugar }}</h3>
+
+    {% endfor %}
+
+{% else %}
+
+    <h3>No se encontraron remates</h3>
+
+{% endif %}
+
+<h2>{{ mensaje }}</h2>
+<a class="btn btn-warning btn-xl text-uppercase" href="{% url 'remates' %}">Volver a Remates</a>
+{% endblock %}

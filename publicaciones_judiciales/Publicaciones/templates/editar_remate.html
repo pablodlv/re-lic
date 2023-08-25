@@ -1,0 +1,28 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido_hero %} 
+<div class="masthead-subheading">Sistema</div>
+<div class="masthead-heading text-uppercase">Remates</div>
+<div class="masthead-subheading">Editando el remate {{ remate }}</div>
+
+{% endblock %}
+
+{% block listado %}
+<br>
+    <form action="{% url 'editar_remate' remate.id %}" method="POST"> {% csrf_token %}
+    
+        <table>
+
+            {{ formulario.as_table }}
+            
+        </table>
+        <input type="submit" value="Guardar cambios">
+
+    </form>
+<br>
+<h3>{{ mensaje }}</h3>
+<br>
+
+{% endblock %}

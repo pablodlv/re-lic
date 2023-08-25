@@ -1,0 +1,12 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido_hero %} 
+<div class="masthead-subheading">Bienvenid@</div>
+<div class="masthead-heading text-uppercase">Remates y licitaciones</div>
+<div class="masthead-subheading">Elegí el listado que prefieras</div>
+<a class="btn btn-success btn-xl text-uppercase" href="{% url 'remates' %}">Remates</a>
+<a class="btn btn-info btn-xl text-uppercase" href="{% url 'licitaciones' %}">Licitaciones</a>
+<a class="btn btn-warning btn-xl text-uppercase" href="{% url 'martilleros' %}">Martilleros</a>
+{% endblock %}
