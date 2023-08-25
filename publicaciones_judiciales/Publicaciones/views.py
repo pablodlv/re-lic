@@ -180,4 +180,4 @@ def editar_remate(request, id):
     else:
         remate=Remate.objects.get(id=id)
         remate_formulario=remateForm(initial={'bien':remate.bien,'base':remate.base,'fecha':remate.fecha,'lugar':remate.lugar})
-        return render(request,'editar_remate.html', {'formulario':remate_formulario, 'remates':remates})
+        return render(request,'editar_remate.html', {'formulario':remate_formulario,'remate':remate})
